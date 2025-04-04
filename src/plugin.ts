@@ -4,6 +4,7 @@ import { startCase, shortenPath, objectValues } from "./utils";
 import type { WebpackBarOptions, ReporterOpts, Reporter, State } from "./types";
 import * as reporters from "./reporters";
 import { parseRequest, hook } from "./utils/webpack";
+import { logUpdate } from "./utils/log-update";
 
 export type { Reporter, State } from "./types";
 
@@ -29,11 +30,15 @@ const DEFAULT_STATE = () => ({
 const globalStates: { [key: string]: State } = {};
 
 export class WebpackBar {
-  private options: any;
+  private options: WebpackBarOptions;
   private reporters: Reporter[];
 
   constructor(options?: WebpackBarOptions) {
     this.options = Object.assign({}, DEFAULTS, options);
+
+    if (options.keepOnBottom) {
+      logUpdate.keepOnBottom = true;
+    }
 
     // Reporters
     const _reporters: ReporterOpts[] = [
