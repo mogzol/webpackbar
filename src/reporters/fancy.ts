@@ -2,10 +2,8 @@ import { grey } from "ansis";
 import { renderBar, colorize, ellipsisLeft } from "../utils/cli";
 import { formatRequest } from "../utils/webpack";
 import { BULLET, TICK, CROSS, CIRCLE_OPEN } from "../utils/consts";
-import LogUpdate from "../utils/log-update";
+import { logUpdate } from "../utils/log-update";
 import { Reporter } from "../types";
-
-const logUpdate = new LogUpdate();
 
 let lastRender = Date.now();
 

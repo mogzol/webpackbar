@@ -84,6 +84,14 @@ export interface WebpackBarOptions {
   fancy?: boolean;
 
   /**
+   * Keep the bar at the bottom of the terminal until build is finished.
+   * Messages logged during the build will appear above the bar.
+   * Only applies when the fancy reporter is used.
+   * @default false
+   */
+  keepOnBottom?: boolean;
+
+  /**
    * Enable a simple log reporter (only start and end)
    * Defaults to 'true' when running in minimal environments
    * @default true

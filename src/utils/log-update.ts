@@ -6,7 +6,8 @@ import { eraseLines } from "./cli";
 
 const originalWrite = Symbol("webpackbarWrite");
 
-export default class LogUpdate {
+class LogUpdate {
+  public keepOnBottom = false;
   private prevLines: string | null;
   private listening: boolean;
   private extraLines: string;
@@ -29,11 +30,10 @@ export default class LogUpdate {
       wordWrap: false,
     });
 
-    const data =
-      eraseLines(this.lineCount) + wrappedLines + "\n" + this.extraLines;
+    const linesToWrite = wrappedLines + "\n" + this.extraLines;
+    this.write(eraseLines(this.lineCount) + linesToWrite);
 
-    this.write(data);
-    this.prevLines = data;
+    this.prevLines = linesToWrite;
   }
 
   /**
@@ -82,11 +82,19 @@ export default class LogUpdate {
   }
 
   _onData(data) {
-    const str = String(data);
-    const lines = str.split("\n").length - 1;
-    if (lines > 0) {
+    if (this.keepOnBottom) {
+      // Erase the progress bar so that the data can be printed above it
+      this.write(eraseLines(this.lineCount));
+    } else {
       this.prevLines += data;
       this.extraLines += data;
+    }
+  }
+
+  _afterData() {
+    if (this.keepOnBottom) {
+      // Re-draw the bar in the new position after the printed data
+      this.write(this.prevLines);
     }
   }
 
@@ -109,7 +117,9 @@ export default class LogUpdate {
           return stream.write(data, ...args);
         }
         this._onData(data);
-        return stream.write[originalWrite].call(stream, data, ...args);
+        const result = stream.write[originalWrite].call(stream, data, ...args);
+        this._afterData();
+        return result;
       };
 
       // Backup original write fn
@@ -133,3 +143,5 @@ export default class LogUpdate {
     this.listening = false;
   }
 }
+
+export const logUpdate = new LogUpdate();
