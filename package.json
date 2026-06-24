@@ -1,6 +1,6 @@
 {
   "name": "@mogzol/webpackbar",
-  "version": "7.0.0",
+  "version": "7.1.0",
   "description": "Elegant ProgressBar and Profiler for Webpack and Rspack",
   "repository": {
     "type": "git",

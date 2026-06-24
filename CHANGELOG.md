@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## v7.1.0
+
+[compare changes](https://github.com/mogzol/webpackbar/compare/9d1c6ebaf07ad71aead3ff32c2d587ae60eaee52...v7.1.0)
+
+### 🚀 Enhancements
+
+- Add option to keep webpackbar on the bottom ([e7f16a0](https://github.com/mogzol/webpackbar/commit/e7f16a0))
+
+### 🩹 Fixes
+
+- Consider line wraps when counting lines ([4f7d1de](https://github.com/mogzol/webpackbar/commit/4f7d1de))
+
+### 🏡 Chore
+
+- Add fork info ([e124297](https://github.com/mogzol/webpackbar/commit/e124297))
+
+### ❤️ Contributors
+
+- Morgan Zolob <mzolob@gmail.com>
+
 ## v7.0.0
 
 [compare changes](https://github.com/unjs/webpackbar/compare/v6.0.1...v7.0.0)
