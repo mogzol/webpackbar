@@ -1,8 +1,11 @@
 {
-  "name": "webpackbar",
+  "name": "@mogzol/webpackbar",
   "version": "7.0.0",
   "description": "Elegant ProgressBar and Profiler for Webpack and Rspack",
-  "repository": "unjs/webpackbar",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mogzol/webpackbar.git"
+  },
   "license": "MIT",
   "type": "module",
   "exports": {

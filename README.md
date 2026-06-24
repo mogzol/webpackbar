@@ -1,7 +1,20 @@
+# Fork of [@unjs/webpackbar](https://github.com/unjs/webpackbar)
+
+This fork includes two improvements over the original v7.0.0 from unjs:
+
+- Fix line counting so that the bar doesn't get duplicated when log lines wrap ([#164](https://github.com/unjs/webpackbar/issues/164))
+- Add a `keepOnBottom` config option to keep the bar on the bottom of the log output instead of the
+  top ([#97](https://github.com/unjs/webpackbar/issues/97))
+
+Other than that it is identical to the unjs version.
+
+---
+
 <!-- automd:badges packagephobia -->
 
-[![npm version](https://img.shields.io/npm/v/webpackbar)](https://npmjs.com/package/webpackbar)
-[![npm downloads](https://img.shields.io/npm/dm/webpackbar)](https://npm.chart.dev/webpackbar)
+[![npm version](https://img.shields.io/npm/v/@mogzol/webpackbar)](https://npmjs.com/package/@mogzol/webpackbar)
+[![npm downloads](https://img.shields.io/npm/dm/@mogzol/webpackbar)](https://npm.chart.dev/@mogzol/webpackbar)
+[![install size](https://badgen.net/packagephobia/install/@mogzol/webpackbar)](https://packagephobia.com/result?p=@mogzol/webpackbar)
 
 <!-- /automd -->
 
@@ -48,22 +61,22 @@ To begin, you'll need to install `webpackbar`:
 
 ```sh
 # ✨ Auto-detect
-npx nypm install webpackbar
+npx nypm install @mogzol/webpackbar
 
 # npm
-npm install webpackbar
+npm install @mogzol/webpackbar
 
 # yarn
-yarn add webpackbar
+yarn add @mogzol/webpackbar
 
 # pnpm
-pnpm install webpackbar
+pnpm install @mogzol/webpackbar
 
 # bun
-bun install webpackbar
+bun install @mogzol/webpackbar
 
 # deno
-deno install webpackbar
+deno install @mogzol/webpackbar
 ```
 
 <!-- /automd -->
